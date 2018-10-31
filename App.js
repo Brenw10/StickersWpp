@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Button } from 'react-native';
 import ImagePicker from 'react-native-image-crop-picker';
+import sticker from 'StickersWpp/src/services/sticker';
 
 export default class App extends Component {
   selectImage() {
-    ImagePicker.openPicker({
-      width: 500,
-      height: 500,
-      cropping: true
-    }).then(image => console.log(image));
+    ImagePicker.openPicker({})
+      .then(image => sticker.addSticker(image.sourceURL));
   }
   render() {
     return (
