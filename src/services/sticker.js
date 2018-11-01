@@ -10,10 +10,14 @@ function setStickers(stickers) {
   return AsyncStorage.setItem('stickers', JSON.stringify(stickers));
 }
 
-async function addSticker(path) {
+function addSticker(path) {
   return getStickers()
     .then(stickers => stickers.concat([path]))
     .then(stickers => setStickers(stickers));
 }
 
-module.exports = { getStickers, addSticker };
+function removeStickers() {
+  return AsyncStorage.removeItem('stickers');
+}
+
+module.exports = { getStickers, addSticker, removeStickers };
