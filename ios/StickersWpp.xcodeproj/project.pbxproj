@@ -755,6 +755,7 @@
 					};
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = XB9K379268;
+						LastSwiftMigration = 1010;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -1355,6 +1356,7 @@
 			baseConfigurationReference = AF0E8354D7624360BE68D0B8 /* Pods-StickersWpp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = XB9K379268;
@@ -1371,6 +1373,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.plugin.stickers;
 				PRODUCT_NAME = StickersWpp;
+				SWIFT_OBJC_BRIDGING_HEADER = "StickerBridge/WebP/StickersWpp-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -1380,6 +1385,7 @@
 			baseConfigurationReference = 08F8F1ACCA3335B001D8148F /* Pods-StickersWpp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = XB9K379268;
 				HEADER_SEARCH_PATHS = (
@@ -1395,6 +1401,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.plugin.stickers;
 				PRODUCT_NAME = StickersWpp;
+				SWIFT_OBJC_BRIDGING_HEADER = "StickerBridge/WebP/StickersWpp-Bridging-Header.h";
+				SWIFT_VERSION = 4.2;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;

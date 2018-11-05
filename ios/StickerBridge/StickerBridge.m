@@ -13,9 +13,9 @@
 
 RCT_EXPORT_MODULE();
 
-RCT_EXPORT_METHOD(import:(NSArray *)paths)
+RCT_EXPORT_METHOD(import:(NSArray *)stickers)
 {
-  RCTLogInfo(@"%@", paths);
+  RCTLogInfo(@"%@", stickers);
 }
 
 @end
