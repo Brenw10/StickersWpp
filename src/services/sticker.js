@@ -2,7 +2,7 @@ import { AsyncStorage } from 'react-native';
 
 function getStickers() {
   return AsyncStorage.getItem('stickers')
-    .then(stickers => JSON.parse(stickers))
+    .then(JSON.parse)
     .then(stickers => stickers || []);
 }
 
@@ -13,7 +13,7 @@ function setStickers(stickers) {
 function addSticker(base64) {
   return getStickers()
     .then(stickers => stickers.concat([base64]))
-    .then(stickers => setStickers(stickers));
+    .then(setStickers);
 }
 
 function removeStickers() {

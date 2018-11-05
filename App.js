@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Button, Linking, NativeModules } from 'react-native';
+import { StyleSheet, View, Button, NativeModules } from 'react-native';
 import ImagePicker from 'react-native-image-crop-picker';
 import sticker from 'StickersWpp/src/services/sticker';
 import ImgToBase64 from 'react-native-image-base64';
-import trayImage from './src/images/tray-image.png';
 
 export default class App extends Component {
   selectImage() {
@@ -15,19 +14,10 @@ export default class App extends Component {
     return stickers.map(sticker => ({ image_data: sticker, emojis: ['😄', '😀'] }));
   }
   importToWpp() {
-    // const StickerBridge = NativeModules.StickerBridge;
-    // StickerBridge.import('Birthday Party', '4 Privet Drive, Surrey');
-    const appJson = {
-      name: 'StickersWpp',
-      identifier: 'stickersWppID',
-      publisher: 'StickersWpp',
-    };
+    const StickerBridge = NativeModules.StickerBridge;
     return sticker.getStickers()
-      .then(stickers =>
-        Object.assign(appJson, { tray_image: ImgToBase64.getBase64String(trayImage), stickers: this.getStickersData(stickers) })
-      )
-      .then(json => console.log(json));
-    // .then(json => Linking.openURL(`whatsapp://stickerPack?${JSON.stringify(json)}`));
+      .then(this.getStickersData)
+      .then(StickerBridge.import);
   }
   render() {
     return (
