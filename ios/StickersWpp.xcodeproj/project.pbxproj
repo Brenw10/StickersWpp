@@ -52,6 +52,8 @@
 		DA2461562190CD8C0024A202 /* WebPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2461502190CD8C0024A202 /* WebPManager.swift */; };
 		DA2461572190CD8C0024A202 /* Interoperability.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2461512190CD8C0024A202 /* Interoperability.swift */; };
 		DA2461592190CE100024A202 /* StickerPack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2461582190CE100024A202 /* StickerPack.swift */; };
+		DA2462C52190D5AE0024A202 /* StickerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2462C42190D5AE0024A202 /* StickerManager.swift */; };
+		DA2462ED2190D6370024A202 /* StickerManagerBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2462EC2190D6370024A202 /* StickerManagerBridge.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -386,7 +388,9 @@
 		DA2461502190CD8C0024A202 /* WebPManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebPManager.swift; sourceTree = "<group>"; };
 		DA2461512190CD8C0024A202 /* Interoperability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interoperability.swift; sourceTree = "<group>"; };
 		DA2461582190CE100024A202 /* StickerPack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StickerPack.swift; sourceTree = "<group>"; };
-		DA24618F2190CF9B0024A202 /* WAStickersThirdParty-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WAStickersThirdParty-Bridging-Header.h"; sourceTree = "<group>"; };
+		DA24618F2190CF9B0024A202 /* StickersWpp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "StickersWpp-Bridging-Header.h"; sourceTree = "<group>"; };
+		DA2462C42190D5AE0024A202 /* StickerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickerManager.swift; sourceTree = "<group>"; };
+		DA2462EC2190D6370024A202 /* StickerManagerBridge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StickerManagerBridge.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -535,6 +539,7 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				DA24618F2190CF9B0024A202 /* StickersWpp-Bridging-Header.h */,
 			);
 			name = StickersWpp;
 			sourceTree = "<group>";
@@ -674,7 +679,8 @@
 				DA24614D2190CD8B0024A202 /* ImageData.swift */,
 				DA2461512190CD8C0024A202 /* Interoperability.swift */,
 				DA2461502190CD8C0024A202 /* WebPManager.swift */,
-				DA24618F2190CF9B0024A202 /* WAStickersThirdParty-Bridging-Header.h */,
+				DA2462C42190D5AE0024A202 /* StickerManager.swift */,
+				DA2462EC2190D6370024A202 /* StickerManagerBridge.m */,
 			);
 			path = WAStickersThirdParty;
 			sourceTree = "<group>";
@@ -1297,6 +1303,7 @@
 				DA2461392190CD120024A202 /* YYSpriteSheetImage.m in Sources */,
 				DA2461562190CD8C0024A202 /* WebPManager.swift in Sources */,
 				DA2461522190CD8C0024A202 /* Limits.swift in Sources */,
+				DA2462C52190D5AE0024A202 /* StickerManager.swift in Sources */,
 				DA2461552190CD8C0024A202 /* StickerPackManager.swift in Sources */,
 				DA24613D2190CD120024A202 /* YYImage.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
@@ -1307,6 +1314,7 @@
 				DA2461592190CE100024A202 /* StickerPack.swift in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 				DA24613A2190CD120024A202 /* YYAnimatedImageView.m in Sources */,
+				DA2462ED2190D6370024A202 /* StickerManagerBridge.m in Sources */,
 				DA2461542190CD8C0024A202 /* Sticker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1437,7 +1445,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.plugin.stickers;
 				PRODUCT_NAME = StickersWpp;
-				SWIFT_OBJC_BRIDGING_HEADER = "WAStickersThirdParty/WAStickersThirdParty-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "StickersWpp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1465,7 +1473,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.plugin.stickers;
 				PRODUCT_NAME = StickersWpp;
-				SWIFT_OBJC_BRIDGING_HEADER = "WAStickersThirdParty/WAStickersThirdParty-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "StickersWpp-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
