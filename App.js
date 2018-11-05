@@ -10,14 +10,11 @@ export default class App extends Component {
       .then(image => ImgToBase64.getBase64String(image.sourceURL))
       .then(base64 => sticker.addSticker(base64));
   }
-  getStickersData(stickers) {
-    return stickers.map(image_data => ({ image_data }));
-  }
   importToWpp() {
     const StickerBridge = NativeModules.StickerBridge;
     return sticker.getStickers()
-      .then(this.getStickersData)
-      .then(StickerBridge.import);
+      .then(stickers => stickers.map(image_data => ({ image_data })))
+      .then(StickerBridge.sendToWhatsApp);
   }
   render() {
     return (

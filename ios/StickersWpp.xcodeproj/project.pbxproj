@@ -40,7 +40,18 @@
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		837A2A5FBA964694914C4537 /* libRNImgToBase64.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4352BE661B144CA9B8B92DA2 /* libRNImgToBase64.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
-		DA1CAB0C218B6DA000FFBC86 /* StickerBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1CAB0B218B6DA000FFBC86 /* StickerBridge.m */; };
+		DA2461392190CD120024A202 /* YYSpriteSheetImage.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2461302190CD110024A202 /* YYSpriteSheetImage.m */; };
+		DA24613A2190CD120024A202 /* YYAnimatedImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2461312190CD110024A202 /* YYAnimatedImageView.m */; };
+		DA24613B2190CD120024A202 /* YYImageCoder.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2461322190CD110024A202 /* YYImageCoder.m */; };
+		DA24613C2190CD120024A202 /* YYFrameImage.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2461362190CD120024A202 /* YYFrameImage.m */; };
+		DA24613D2190CD120024A202 /* YYImage.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2461372190CD120024A202 /* YYImage.m */; };
+		DA2461522190CD8C0024A202 /* Limits.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA24614C2190CD8B0024A202 /* Limits.swift */; };
+		DA2461532190CD8C0024A202 /* ImageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA24614D2190CD8B0024A202 /* ImageData.swift */; };
+		DA2461542190CD8C0024A202 /* Sticker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA24614E2190CD8B0024A202 /* Sticker.swift */; };
+		DA2461552190CD8C0024A202 /* StickerPackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA24614F2190CD8C0024A202 /* StickerPackManager.swift */; };
+		DA2461562190CD8C0024A202 /* WebPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2461502190CD8C0024A202 /* WebPManager.swift */; };
+		DA2461572190CD8C0024A202 /* Interoperability.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2461512190CD8C0024A202 /* Interoperability.swift */; };
+		DA2461592190CE100024A202 /* StickerPack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2461582190CE100024A202 /* StickerPack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -358,8 +369,24 @@
 		AB8CF101656F42D0A4D92586 /* RNImgToBase64.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNImgToBase64.xcodeproj; path = "../node_modules/react-native-image-base64/ios/RNImgToBase64.xcodeproj"; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
 		AF0E8354D7624360BE68D0B8 /* Pods-StickersWpp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StickersWpp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StickersWpp/Pods-StickersWpp.debug.xcconfig"; sourceTree = "<group>"; };
-		DA1CAB0A218B6DA000FFBC86 /* StickerBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StickerBridge.h; sourceTree = "<group>"; };
-		DA1CAB0B218B6DA000FFBC86 /* StickerBridge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StickerBridge.m; sourceTree = "<group>"; };
+		DA24612F2190CD110024A202 /* YYImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYImage.h; sourceTree = "<group>"; };
+		DA2461302190CD110024A202 /* YYSpriteSheetImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYSpriteSheetImage.m; sourceTree = "<group>"; };
+		DA2461312190CD110024A202 /* YYAnimatedImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYAnimatedImageView.m; sourceTree = "<group>"; };
+		DA2461322190CD110024A202 /* YYImageCoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYImageCoder.m; sourceTree = "<group>"; };
+		DA2461332190CD110024A202 /* YYSpriteSheetImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYSpriteSheetImage.h; sourceTree = "<group>"; };
+		DA2461342190CD110024A202 /* YYAnimatedImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYAnimatedImageView.h; sourceTree = "<group>"; };
+		DA2461352190CD120024A202 /* YYFrameImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYFrameImage.h; sourceTree = "<group>"; };
+		DA2461362190CD120024A202 /* YYFrameImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYFrameImage.m; sourceTree = "<group>"; };
+		DA2461372190CD120024A202 /* YYImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYImage.m; sourceTree = "<group>"; };
+		DA2461382190CD120024A202 /* YYImageCoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYImageCoder.h; sourceTree = "<group>"; };
+		DA24614C2190CD8B0024A202 /* Limits.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Limits.swift; sourceTree = "<group>"; };
+		DA24614D2190CD8B0024A202 /* ImageData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageData.swift; sourceTree = "<group>"; };
+		DA24614E2190CD8B0024A202 /* Sticker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sticker.swift; sourceTree = "<group>"; };
+		DA24614F2190CD8C0024A202 /* StickerPackManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StickerPackManager.swift; sourceTree = "<group>"; };
+		DA2461502190CD8C0024A202 /* WebPManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebPManager.swift; sourceTree = "<group>"; };
+		DA2461512190CD8C0024A202 /* Interoperability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interoperability.swift; sourceTree = "<group>"; };
+		DA2461582190CE100024A202 /* StickerPack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StickerPack.swift; sourceTree = "<group>"; };
+		DA24618F2190CF9B0024A202 /* WAStickersThirdParty-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WAStickersThirdParty-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -500,7 +527,7 @@
 		13B07FAE1A68108700A75B9A /* StickersWpp */ = {
 			isa = PBXGroup;
 			children = (
-				DA1CAAE4218B6D6B00FFBC86 /* StickerBridge */,
+				DA24611A2190CC250024A202 /* WAStickersThirdParty */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -636,13 +663,37 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		DA1CAAE4218B6D6B00FFBC86 /* StickerBridge */ = {
+		DA24611A2190CC250024A202 /* WAStickersThirdParty */ = {
 			isa = PBXGroup;
 			children = (
-				DA1CAB0A218B6DA000FFBC86 /* StickerBridge.h */,
-				DA1CAB0B218B6DA000FFBC86 /* StickerBridge.m */,
+				DA24612E2190CCE00024A202 /* WebP */,
+				DA24614C2190CD8B0024A202 /* Limits.swift */,
+				DA24614F2190CD8C0024A202 /* StickerPackManager.swift */,
+				DA2461582190CE100024A202 /* StickerPack.swift */,
+				DA24614E2190CD8B0024A202 /* Sticker.swift */,
+				DA24614D2190CD8B0024A202 /* ImageData.swift */,
+				DA2461512190CD8C0024A202 /* Interoperability.swift */,
+				DA2461502190CD8C0024A202 /* WebPManager.swift */,
+				DA24618F2190CF9B0024A202 /* WAStickersThirdParty-Bridging-Header.h */,
 			);
-			path = StickerBridge;
+			path = WAStickersThirdParty;
+			sourceTree = "<group>";
+		};
+		DA24612E2190CCE00024A202 /* WebP */ = {
+			isa = PBXGroup;
+			children = (
+				DA2461342190CD110024A202 /* YYAnimatedImageView.h */,
+				DA2461312190CD110024A202 /* YYAnimatedImageView.m */,
+				DA2461352190CD120024A202 /* YYFrameImage.h */,
+				DA2461362190CD120024A202 /* YYFrameImage.m */,
+				DA24612F2190CD110024A202 /* YYImage.h */,
+				DA2461372190CD120024A202 /* YYImage.m */,
+				DA2461382190CD120024A202 /* YYImageCoder.h */,
+				DA2461322190CD110024A202 /* YYImageCoder.m */,
+				DA2461332190CD110024A202 /* YYSpriteSheetImage.h */,
+				DA2461302190CD110024A202 /* YYSpriteSheetImage.m */,
+			);
+			name = WebP;
 			sourceTree = "<group>";
 		};
 		DAA58C052190A5F500CE3C66 /* Products */ = {
@@ -1243,9 +1294,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA1CAB0C218B6DA000FFBC86 /* StickerBridge.m in Sources */,
+				DA2461392190CD120024A202 /* YYSpriteSheetImage.m in Sources */,
+				DA2461562190CD8C0024A202 /* WebPManager.swift in Sources */,
+				DA2461522190CD8C0024A202 /* Limits.swift in Sources */,
+				DA2461552190CD8C0024A202 /* StickerPackManager.swift in Sources */,
+				DA24613D2190CD120024A202 /* YYImage.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
+				DA2461572190CD8C0024A202 /* Interoperability.swift in Sources */,
+				DA24613B2190CD120024A202 /* YYImageCoder.m in Sources */,
+				DA2461532190CD8C0024A202 /* ImageData.swift in Sources */,
+				DA24613C2190CD120024A202 /* YYFrameImage.m in Sources */,
+				DA2461592190CE100024A202 /* StickerPack.swift in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				DA24613A2190CD120024A202 /* YYAnimatedImageView.m in Sources */,
+				DA2461542190CD8C0024A202 /* Sticker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1297,6 +1359,7 @@
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = XB9K379268;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1327,6 +1390,7 @@
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				DEVELOPMENT_TEAM = XB9K379268;
@@ -1373,7 +1437,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.plugin.stickers;
 				PRODUCT_NAME = StickersWpp;
-				SWIFT_OBJC_BRIDGING_HEADER = "StickerBridge/WebP/StickersWpp-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "WAStickersThirdParty/WAStickersThirdParty-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1401,7 +1465,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.plugin.stickers;
 				PRODUCT_NAME = StickersWpp;
-				SWIFT_OBJC_BRIDGING_HEADER = "StickerBridge/WebP/StickersWpp-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "WAStickersThirdParty/WAStickersThirdParty-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
