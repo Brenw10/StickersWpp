@@ -11,7 +11,7 @@ export default class App extends Component {
       .then(base64 => sticker.addSticker(base64));
   }
   getStickersData(stickers) {
-    return stickers.map(sticker => ({ image_data: sticker, emojis: ['😄', '😀'] }));
+    return stickers.map(image_data => ({ image_data }));
   }
   importToWpp() {
     const StickerBridge = NativeModules.StickerBridge;
