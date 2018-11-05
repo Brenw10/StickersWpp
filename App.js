@@ -1,18 +1,33 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Button } from 'react-native';
+import { StyleSheet, View, Button, Linking, NativeModules } from 'react-native';
 import ImagePicker from 'react-native-image-crop-picker';
 import sticker from 'StickersWpp/src/services/sticker';
-import { NativeModules } from 'react-native';
+import ImgToBase64 from 'react-native-image-base64';
+import trayImage from './src/images/tray-image.png';
 
 export default class App extends Component {
   selectImage() {
     return ImagePicker.openPicker({})
-      .then(image => sticker.addSticker(image.sourceURL));
+      .then(image => ImgToBase64.getBase64String(image.sourceURL))
+      .then(base64 => sticker.addSticker(base64));
+  }
+  getStickersData(stickers) {
+    return stickers.map(sticker => ({ image_data: sticker, emojis: ['😄', '😀'] }));
   }
   importToWpp() {
-    const StickerBridge = NativeModules.StickerBridge;
+    // const StickerBridge = NativeModules.StickerBridge;
+    // StickerBridge.import('Birthday Party', '4 Privet Drive, Surrey');
+    const appJson = {
+      name: 'StickersWpp',
+      identifier: 'stickersWppID',
+      publisher: 'StickersWpp',
+    };
     return sticker.getStickers()
-      .then(stickers => StickerBridge.import(stickers));
+      .then(stickers =>
+        Object.assign(appJson, { tray_image: ImgToBase64.getBase64String(trayImage), stickers: this.getStickersData(stickers) })
+      )
+      .then(json => console.log(json));
+    // .then(json => Linking.openURL(`whatsapp://stickerPack?${JSON.stringify(json)}`));
   }
   render() {
     return (

@@ -10,9 +10,9 @@ function setStickers(stickers) {
   return AsyncStorage.setItem('stickers', JSON.stringify(stickers));
 }
 
-function addSticker(path) {
+function addSticker(base64) {
   return getStickers()
-    .then(stickers => stickers.concat([path]))
+    .then(stickers => stickers.concat([base64]))
     .then(stickers => setStickers(stickers));
 }
 

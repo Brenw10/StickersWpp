@@ -15,7 +15,7 @@ RCT_EXPORT_MODULE();
 
 RCT_EXPORT_METHOD(import:(NSArray *)paths)
 {
-  RCTLogInfo(@"Pretending to create an event %@", paths);
+  RCTLogInfo(@"%@", paths);
 }
 
 @end
