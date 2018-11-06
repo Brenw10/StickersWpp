@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { StyleSheet, View, Button, NativeModules } from 'react-native';
 import ImagePicker from 'react-native-image-crop-picker';
 import sticker from 'StickersWpp/src/services/sticker';
-import { Grid, Col } from 'react-native-easy-grid';
 import Sticker from 'StickersWpp/src/components/Sticker';
 
 export default class App extends Component {
