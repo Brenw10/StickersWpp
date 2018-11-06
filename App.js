@@ -1,29 +1,26 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
+import React, { Component } from 'react';
+import { StyleSheet, View, Button, NativeModules } from 'react-native';
+import ImagePicker from 'react-native-image-crop-picker';
+import sticker from 'StickersWpp/src/services/sticker';
+import ImgToBase64 from 'react-native-image-base64';
 
-import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
-
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-  android:
-    'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
-
-type Props = {};
-export default class App extends Component<Props> {
+export default class App extends Component {
+  selectImage() {
+    return ImagePicker.openPicker({})
+      .then(image => ImgToBase64.getBase64String(image.sourceURL))
+      .then(base64 => sticker.addSticker(base64));
+  }
+  importToWpp() {
+    const StickerManager = NativeModules.StickerManager;
+    return sticker.getStickers()
+      .then(StickerManager.sendToWhatsApp);
+  }
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
+        <Button title='Image' onPress={this.selectImage.bind(this)} />
+        <Button title='Import to WhatsApp' onPress={this.importToWpp.bind(this)} />
+        <Button title='Remove all stickers' onPress={sticker.removeStickers.bind(this)} />
       </View>
     );
   }
@@ -34,16 +31,5 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
   },
 });
