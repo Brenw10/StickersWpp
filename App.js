@@ -2,25 +2,48 @@ import React, { Component } from 'react';
 import { StyleSheet, View, Button, NativeModules } from 'react-native';
 import ImagePicker from 'react-native-image-crop-picker';
 import sticker from 'StickersWpp/src/services/sticker';
-import ImgToBase64 from 'react-native-image-base64';
+import { Grid, Col } from 'react-native-easy-grid';
+import Sticker from 'StickersWpp/src/components/Sticker';
 
 export default class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      stickers: []
+    };
+    this.refresh();
+  }
   selectImage() {
     return ImagePicker.openPicker({})
-      .then(image => ImgToBase64.getBase64String(image.sourceURL))
-      .then(base64 => sticker.addSticker(base64));
+      .then(image => sticker.addSticker(image.sourceURL))
+      .then(this.refresh.bind(this));
   }
-  importToWpp() {
+  exportToWpp() {
     const StickerManager = NativeModules.StickerManager;
     return sticker.getStickers()
       .then(StickerManager.sendToWhatsApp);
   }
+  refresh() {
+    return sticker.getStickers()
+      .then(stickers => this.setState({ stickers }));
+  }
+  renderStickerColumns() {
+    if (!this.state.stickers) return;
+    return this.state.stickers.map((sticker, i) =>
+      <Col key={i}>
+        <Sticker sticker={sticker} />
+      </Col>
+    )
+  }
   render() {
     return (
       <View style={styles.container}>
-        <Button title='Image' onPress={this.selectImage.bind(this)} />
-        <Button title='Import to WhatsApp' onPress={this.importToWpp.bind(this)} />
+        <Button title='Select new image' onPress={this.selectImage.bind(this)} />
+        <Button title='Export to WhatsApp' onPress={this.exportToWpp.bind(this)} />
         <Button title='Remove all stickers' onPress={sticker.removeStickers.bind(this)} />
+        <Grid>
+          {this.renderStickerColumns()}
+        </Grid>
       </View>
     );
   }
@@ -29,7 +52,7 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
     alignItems: 'center',
+    margin: 20,
   },
 });

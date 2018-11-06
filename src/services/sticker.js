@@ -1,4 +1,5 @@
 import { AsyncStorage } from 'react-native';
+import ImgToBase64 from 'react-native-image-base64';
 
 function getStickers() {
   return AsyncStorage.getItem('stickers')
@@ -10,9 +11,10 @@ function setStickers(stickers) {
   return AsyncStorage.setItem('stickers', JSON.stringify(stickers));
 }
 
-function addSticker(base64) {
-  return getStickers()
-    .then(stickers => stickers.concat([base64]))
+function addSticker(imageURL) {
+  Promise.all([getStickers(), ImgToBase64.getBase64String(imageURL)])
+    .then(snaps => ({ stickers: snaps[0], base64Image: snaps[1] }))
+    .then(({ stickers, base64Image }) => stickers.concat([base64Image]))
     .then(setStickers);
 }
 

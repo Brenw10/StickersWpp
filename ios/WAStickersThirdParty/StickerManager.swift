@@ -18,9 +18,9 @@ class StickerManager: NSObject {
         name: "StickersWpp",
         publisher: "StickersWpp",
         trayImageFileName: "tray_Cuppy.png",
-        publisherWebsite: "www.google.com",
-        privacyPolicyWebsite: "www.google.com",
-        licenseAgreementWebsite: "www.google.com"
+        publisherWebsite: nil,
+        privacyPolicyWebsite: nil,
+        licenseAgreementWebsite: nil
       )
     } catch {
       fatalError(error.localizedDescription)
@@ -36,7 +36,7 @@ class StickerManager: NSObject {
     }
 
     stickerPack!.sendToWhatsApp { completed in
-      print("DONE")
+      return
     }
   }
   
