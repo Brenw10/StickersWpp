@@ -13,7 +13,6 @@ export default class App extends Component {
   importToWpp() {
     const StickerManager = NativeModules.StickerManager;
     return sticker.getStickers()
-      .then(stickers => stickers.map(image_data => ({ image_data })))
       .then(StickerManager.sendToWhatsApp);
   }
   render() {

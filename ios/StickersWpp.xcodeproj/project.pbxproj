@@ -54,6 +54,8 @@
 		DA2461592190CE100024A202 /* StickerPack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2461582190CE100024A202 /* StickerPack.swift */; };
 		DA2462C52190D5AE0024A202 /* StickerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2462C42190D5AE0024A202 /* StickerManager.swift */; };
 		DA2462ED2190D6370024A202 /* StickerManagerBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2462EC2190D6370024A202 /* StickerManagerBridge.m */; };
+		DA2463242191C1C90024A202 /* tray_Cuppy.png in Resources */ = {isa = PBXBuildFile; fileRef = DA2463232191C1C90024A202 /* tray_Cuppy.png */; };
+		DA2463262191C9DD0024A202 /* WebP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA2463252191C9DD0024A202 /* WebP.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -391,6 +393,8 @@
 		DA24618F2190CF9B0024A202 /* StickersWpp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "StickersWpp-Bridging-Header.h"; sourceTree = "<group>"; };
 		DA2462C42190D5AE0024A202 /* StickerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickerManager.swift; sourceTree = "<group>"; };
 		DA2462EC2190D6370024A202 /* StickerManagerBridge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StickerManagerBridge.m; sourceTree = "<group>"; };
+		DA2463232191C1C90024A202 /* tray_Cuppy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tray_Cuppy.png; sourceTree = "<group>"; };
+		DA2463252191C9DD0024A202 /* WebP.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WebP.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -406,6 +410,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA2463262191C9DD0024A202 /* WebP.framework in Frameworks */,
 				ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */,
 				11D1A2F320CAFA9E000508D9 /* libRCTAnimation.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
@@ -570,6 +575,7 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DA2463252191C9DD0024A202 /* WebP.framework */,
 				2D16E6891FA4F8E400B85C8A /* libReact.a */,
 				5CFB12F0986C3AD9FBB6DD23 /* libPods-StickersWpp.a */,
 			);
@@ -681,6 +687,7 @@
 				DA2461502190CD8C0024A202 /* WebPManager.swift */,
 				DA2462C42190D5AE0024A202 /* StickerManager.swift */,
 				DA2462EC2190D6370024A202 /* StickerManagerBridge.m */,
+				DA2463232191C1C90024A202 /* tray_Cuppy.png */,
 			);
 			path = WAStickersThirdParty;
 			sourceTree = "<group>";
@@ -1182,6 +1189,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				DA2463242191C1C90024A202 /* tray_Cuppy.png in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1432,6 +1440,10 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = XB9K379268;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-image-base64/ios",
@@ -1460,6 +1472,10 @@
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = XB9K379268;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-image-base64/ios",
