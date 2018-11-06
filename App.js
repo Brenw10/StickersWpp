@@ -11,10 +11,10 @@ export default class App extends Component {
       .then(base64 => sticker.addSticker(base64));
   }
   importToWpp() {
-    const StickerBridge = NativeModules.StickerBridge;
+    const StickerManager = NativeModules.StickerManager;
     return sticker.getStickers()
       .then(stickers => stickers.map(image_data => ({ image_data })))
-      .then(StickerBridge.sendToWhatsApp);
+      .then(StickerManager.sendToWhatsApp);
   }
   render() {
     return (

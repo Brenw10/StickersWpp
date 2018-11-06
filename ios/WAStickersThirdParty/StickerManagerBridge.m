@@ -10,6 +10,6 @@
 
 @interface RCT_EXTERN_MODULE(StickerManager, NSObject)
 
-RCT_EXTERN_METHOD(StickerManager:(NSArray *)stickers)
+RCT_EXTERN_METHOD(sendToWhatsApp:(NSArray *)stickers)
 
 @end
