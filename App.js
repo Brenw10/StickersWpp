@@ -23,6 +23,10 @@ export default class App extends Component {
     return sticker.getStickers()
       .then(StickerManager.sendToWhatsApp);
   }
+  removeAllStickers() {
+    return sticker.removeStickers()
+      .then(this.refresh.bind(this));
+  }
   refresh() {
     return sticker.getStickers()
       .then(stickers => this.setState({ stickers }));
@@ -30,20 +34,16 @@ export default class App extends Component {
   renderStickerColumns() {
     if (!this.state.stickers) return;
     return this.state.stickers.map((sticker, i) =>
-      <Col key={i}>
-        <Sticker sticker={sticker} />
-      </Col>
-    )
+      <Sticker key={i} sticker={sticker} />
+    );
   }
   render() {
     return (
       <View style={styles.container}>
         <Button title='Select new image' onPress={this.selectImage.bind(this)} />
         <Button title='Export to WhatsApp' onPress={this.exportToWpp.bind(this)} />
-        <Button title='Remove all stickers' onPress={sticker.removeStickers.bind(this)} />
-        <Grid>
-          {this.renderStickerColumns()}
-        </Grid>
+        <Button title='Remove all stickers' onPress={this.removeAllStickers.bind(this)} />
+        {this.renderStickerColumns()}
       </View>
     );
   }

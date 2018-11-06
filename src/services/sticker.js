@@ -12,7 +12,7 @@ function setStickers(stickers) {
 }
 
 function addSticker(imageURL) {
-  Promise.all([getStickers(), ImgToBase64.getBase64String(imageURL)])
+  return Promise.all([getStickers(), ImgToBase64.getBase64String(imageURL)])
     .then(snaps => ({ stickers: snaps[0], base64Image: snaps[1] }))
     .then(({ stickers, base64Image }) => stickers.concat([base64Image]))
     .then(setStickers);
