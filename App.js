@@ -3,10 +3,7 @@ import { createStackNavigator } from 'react-navigation';
 
 export default createStackNavigator(
   {
-    StickerList: {
-      screen: StickerList,
-      navigationOptions: () => ({ title: 'Stickers' }),
-    },
+    StickerList
   },
   {
     initialRouteName: 'StickerList',

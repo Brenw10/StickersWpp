@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, NativeModules, FlatList, Dimensions } from 'react-native';
+import { StyleSheet, View, NativeModules, FlatList, Dimensions, Alert, TouchableOpacity } from 'react-native';
 import ImagePicker from 'react-native-image-crop-picker';
 import sticker from 'StickersWpp/src/services/sticker';
 import Sticker from 'StickersWpp/src/components/Sticker';
@@ -8,6 +8,9 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 export default class StickerList extends Component {
+  static navigationOptions = {
+    headerTitle: 'Stickers',
+  };
   constructor(props) {
     super(props);
     this.state = {
@@ -18,31 +21,46 @@ export default class StickerList extends Component {
   }
   selectImage() {
     return ImagePicker.openPicker({})
-      .then(image => sticker.addSticker(image.sourceURL))
+      .then(image => sticker.add(image.sourceURL))
       .then(this.refresh.bind(this));
   }
-  removeAllStickers() {
-    return sticker.removeAllStickers()
+  removeAll() {
+    return sticker.removeAll()
       .then(this.refresh.bind(this));
   }
-  removeSticker(index) {
-    return sticker.removeSticker(index)
+  remove(index) {
+    return sticker.remove(index)
       .then(this.refresh.bind(this));
+  }
+  popUpOptions(index) {
+    Alert.alert(
+      'Options',
+      null,
+      [
+        { text: 'Remove', onPress: () => this.remove(index) },
+        { text: 'Cancel', style: 'cancel' },
+      ],
+      { cancelable: false },
+    )
   }
   exportToWpp() {
-    return sticker.getStickers()
+    return sticker.get()
       .then(NativeModules.StickerManager.sendToWhatsApp);
-  }
+  }s
   refresh() {
-    return sticker.getStickers()
+    return sticker.get()
       .then(stickers => this.setState({ stickers }));
   }
-  renderSticker({ item }) {
-    return <Sticker
-      data={item}
-      width={Dimensions.get('window').width / this.state.gridColumns}
-      height={Dimensions.get('window').width / this.state.gridColumns}
-    />;
+  renderSticker({ item, index }) {
+    return (
+      <TouchableOpacity onPress={() => this.popUpOptions(index)}>
+        <Sticker
+          data={item}
+          width={Dimensions.get('window').width / this.state.gridColumns}
+          height={Dimensions.get('window').width / this.state.gridColumns}
+        />
+      </TouchableOpacity>
+    );
   }
   render() {
     return (
@@ -59,7 +77,7 @@ export default class StickerList extends Component {
           <ActionButton.Item buttonColor='#1abc9c' title="Export to WhatsApp" onPress={this.exportToWpp.bind(this)}>
             <FontAwesome name="whatsapp" style={styles.actionButtonIcon} />
           </ActionButton.Item>
-          <ActionButton.Item buttonColor='rgba(231,76,60,1)' title="Remove All" onPress={this.removeAllStickers.bind(this)}>
+          <ActionButton.Item buttonColor='rgba(231,76,60,1)' title="Remove All" onPress={this.removeAll.bind(this)}>
             <Ionicons name="md-trash" style={styles.actionButtonIcon} />
           </ActionButton.Item>
         </ActionButton>
