@@ -5,7 +5,8 @@ export default class Sticker extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Image style={styles.image} source={{ uri: `data:image/png;base64,${this.props.sticker}` }} />
+        <Image style={{ width: this.props.width - 2, height: this.props.height }}
+          source={{ uri: `data:image/png;base64,${this.props.sticker}` }} />
       </View>
     );
   }
@@ -13,11 +14,7 @@ export default class Sticker extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    borderWidth: .8,
     borderColor: 'white',
-  },
-  image: {
-    width: 125,
-    height: 125,
-  },
+    borderWidth: 1,
+  }
 });

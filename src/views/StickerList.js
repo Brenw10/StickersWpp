@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, NativeModules, FlatList } from 'react-native';
+import { StyleSheet, View, NativeModules, FlatList, Dimensions } from 'react-native';
 import ImagePicker from 'react-native-image-crop-picker';
 import sticker from 'StickersWpp/src/services/sticker';
 import Sticker from 'StickersWpp/src/components/Sticker';
@@ -12,6 +12,7 @@ export default class StickerList extends Component {
     super(props);
     this.state = {
       stickers: [],
+      gridColumns: 3,
     };
     this.refresh();
   }
@@ -37,16 +38,21 @@ export default class StickerList extends Component {
       .then(stickers => this.setState({ stickers }));
   }
   renderSticker({ item, index }) {
-    return <Sticker sticker={item} onRemove={() => this.removeSticker(index)} />;
+    return <Sticker
+      sticker={item}
+      onRemove={() => this.removeSticker(index)}
+      width={Dimensions.get('window').width / this.state.gridColumns}
+      height={Dimensions.get('window').width / this.state.gridColumns}
+    />;
   }
   render() {
     return (
       <View style={styles.container}>
         <FlatList
           keyExtractor={(_, index) => index}
-          numColumns={3}
+          numColumns={this.state.gridColumns}
           data={this.state.stickers}
-          renderItem={this.renderSticker} />
+          renderItem={this.renderSticker.bind(this)} />
         <ActionButton buttonColor="rgba(231,76,60,1)">
           <ActionButton.Item buttonColor='#9b59b6' title="Select Image" onPress={this.selectImage.bind(this)}>
             <Ionicons name="md-image" style={styles.actionButtonIcon} />
@@ -66,7 +72,6 @@ export default class StickerList extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
   },
   actionButtonIcon: {
     fontSize: 20,
