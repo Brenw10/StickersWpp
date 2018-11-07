@@ -18,8 +18,14 @@ function addSticker(imageURL) {
     .then(setStickers);
 }
 
-function removeStickers() {
+function removeAllStickers() {
   return AsyncStorage.removeItem('stickers');
 }
 
-module.exports = { getStickers, addSticker, removeStickers };
+function removeSticker(index) {
+  return getStickers()
+    .then(stickers => stickers.filter((_, i) => index !== i))
+    .then(setStickers);
+}
+
+module.exports = { getStickers, addSticker, removeAllStickers, removeSticker };

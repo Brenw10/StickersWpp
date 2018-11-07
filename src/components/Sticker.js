@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
-import { StyleSheet, Image } from 'react-native';
+import { StyleSheet, View, Image, Button } from 'react-native';
 
 export default class Sticker extends Component {
   render() {
     return (
-      <Image style={styles.image} source={{ uri: `data:image/png;base64,${this.props.sticker}` }} />
+      <View>
+        <Image style={styles.image} source={{ uri: `data:image/png;base64,${this.props.sticker}` }} />
+        <Button title='Remove' onPress={this.props.onRemove}></Button>
+      </View>
     );
   }
 }
