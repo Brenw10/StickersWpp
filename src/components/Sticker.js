@@ -1,16 +1,10 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Image, TouchableOpacity } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import { StyleSheet, View, Image } from 'react-native';
 
 export default class Sticker extends Component {
   render() {
     return (
-      <View>
-        <View style={styles.remove}>
-          <TouchableOpacity onPress={this.props.onRemove}>
-            <Icon name="remove" size={20} color="#900" />
-          </TouchableOpacity>
-        </View>
+      <View style={styles.container}>
         <Image style={styles.image} source={{ uri: `data:image/png;base64,${this.props.sticker}` }} />
       </View>
     );
@@ -18,14 +12,12 @@ export default class Sticker extends Component {
 }
 
 const styles = StyleSheet.create({
-  image: {
-    width: 100,
-    height: 100,
+  container: {
+    borderWidth: .8,
+    borderColor: 'white',
   },
-  remove: {
-    alignItems: 'flex-end',
-    marginBottom: -10,
-    marginRight: -7,
-    zIndex: 1,
+  image: {
+    width: 125,
+    height: 125,
   },
 });
