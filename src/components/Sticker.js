@@ -6,7 +6,7 @@ export default class Sticker extends Component {
     return (
       <View>
         <Image style={{ width: this.props.width, height: this.props.height }}
-          source={{ uri: `data:image/png;base64,${this.props.sticker}` }} />
+          source={{ uri: `data:image/png;base64,${this.props.data}` }} />
       </View>
     );
   }

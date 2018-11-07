@@ -37,10 +37,9 @@ export default class StickerList extends Component {
     return sticker.getStickers()
       .then(stickers => this.setState({ stickers }));
   }
-  renderSticker({ item, index }) {
+  renderSticker({ item }) {
     return <Sticker
-      sticker={item}
-      onRemove={() => this.removeSticker(index)}
+      data={item}
       width={Dimensions.get('window').width / this.state.gridColumns}
       height={Dimensions.get('window').width / this.state.gridColumns}
     />;
