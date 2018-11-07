@@ -19,7 +19,8 @@ target 'StickersWpp' do
     'RCTSettings',
     'RCTText',
     'RCTVibration',
-    'RCTWebSocket'
+    'RCTWebSocket',
+    'RCTLinkingIOS',
   ]
 
   pod 'RNImageCropPicker', :path =>  '../node_modules/react-native-image-crop-picker'

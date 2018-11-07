@@ -24,7 +24,8 @@ const styles = StyleSheet.create({
   },
   remove: {
     alignItems: 'flex-end',
-    marginBottom: -15,
+    marginBottom: -10,
+    marginRight: -7,
     zIndex: 1,
-  }
+  },
 });

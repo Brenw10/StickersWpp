@@ -1,20 +1,14 @@
-import React, { Component } from 'react';
-import { StyleSheet, View } from 'react-native';
 import StickerList from 'StickersWpp/src/views/StickerList';
+import { createStackNavigator } from 'react-navigation';
 
-export default class App extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <StickerList />
-      </View>
-    );
-  }
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    margin: 20,
+export default createStackNavigator(
+  {
+    StickerList: {
+      screen: StickerList,
+      navigationOptions: () => ({ title: 'Stickers' }),
+    },
   },
-});
+  {
+    initialRouteName: 'StickerList',
+  },
+);
