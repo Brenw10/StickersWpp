@@ -1,23 +1,22 @@
-import { AsyncStorage } from 'react-native';
+import ImgToBase64 from 'react-native-image-base64';
+import storage from 'StickersWpp/src/services/storage';
+import { STICKER_KEY } from 'StickersWpp/src/core/constants';
 
-function getStickers() {
-  return AsyncStorage.getItem('stickers')
-    .then(JSON.parse)
-    .then(stickers => stickers || []);
+function getImages() {
+  return storage.get(STICKER_KEY);
 }
 
-function setStickers(stickers) {
-  return AsyncStorage.setItem('stickers', JSON.stringify(stickers));
+function add(imageURL) {
+  return ImgToBase64.getBase64String(imageURL)
+    .then(base64Image => storage.addItem(STICKER_KEY, base64Image));
 }
 
-function addSticker(base64) {
-  return getStickers()
-    .then(stickers => stickers.concat([base64]))
-    .then(setStickers);
+function removeAll() {
+  return storage.remove(STICKER_KEY);
 }
 
-function removeStickers() {
-  return AsyncStorage.removeItem('stickers');
+function remove(index) {
+  return storage.removeItemByIndex(STICKER_KEY, index);
 }
 
-module.exports = { getStickers, addSticker, removeStickers };
+export default { getImages, add, removeAll, remove };
