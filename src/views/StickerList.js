@@ -44,11 +44,11 @@ export default class StickerList extends Component {
     )
   }
   exportToWpp() {
-    return sticker.get()
+    return sticker.getImages()
       .then(NativeModules.StickerManager.sendToWhatsApp);
-  }s
+  }
   refresh() {
-    return sticker.get()
+    return sticker.getImages()
       .then(stickers => this.setState({ stickers }));
   }
   renderSticker({ item, index }) {
