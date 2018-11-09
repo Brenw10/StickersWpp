@@ -6,6 +6,7 @@ import Sticker from 'StickersWpp/src/components/Sticker';
 import ActionButton from 'react-native-action-button';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import { STICKER } from 'StickersWpp/src/core/constants';
 
 export default class StickerList extends Component {
   static navigationOptions = {
@@ -20,8 +21,13 @@ export default class StickerList extends Component {
     this.refresh();
   }
   selectImage() {
-    return ImagePicker.openPicker({})
-      .then(image => sticker.add(image.sourceURL))
+    return ImagePicker.openPicker({
+      compressImageMaxWidth: STICKER.WIDTH,
+      compressImageMaxHeight: STICKER.HEIGHT,
+      mediaType: 'photo',
+      includeBase64: true,
+    })
+      .then(image => sticker.add(image))
       .then(this.refresh.bind(this));
   }
   removeAll() {

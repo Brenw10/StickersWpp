@@ -1,3 +1,8 @@
 module.exports = {
-  STICKER_KEY: 'STICKER',
+  STICKER: {
+    KEY: 'STICKER',
+    WIDTH: 512,
+    HEIGHT: 512,
+    MAX_KB: 100,
+  },
 };
