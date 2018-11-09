@@ -1,22 +1,22 @@
 import ImgToBase64 from 'react-native-image-base64';
 import storage from 'StickersWpp/src/services/storage';
-import { STICKER_KEY } from 'StickersWpp/src/core/constants';
+import { STICKER } from 'StickersWpp/src/core/constant';
 
 function getImages() {
-  return storage.get(STICKER_KEY);
+  return storage.get(STICKER.KEY);
 }
 
 function add(imageURL) {
   return ImgToBase64.getBase64String(imageURL)
-    .then(base64Image => storage.addItem(STICKER_KEY, base64Image));
+    .then(base64Image => storage.addItem(STICKER.KEY, base64Image));
 }
 
 function removeAll() {
-  return storage.remove(STICKER_KEY);
+  return storage.remove(STICKER.KEY);
 }
 
 function remove(index) {
-  return storage.removeItemByIndex(STICKER_KEY, index);
+  return storage.removeItemByIndex(STICKER.KEY, index);
 }
 
 export default { getImages, add, removeAll, remove };
