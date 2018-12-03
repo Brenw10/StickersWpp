@@ -28,7 +28,8 @@ public class MainApplication extends Application implements ReactApplication {
           new MainReactPackage(),
             new PickerPackage(),
             new VectorIconsPackage(),
-            new RNImgToBase64Package()
+            new RNImgToBase64Package(),
+            new StickerManagerPackage()
       );
     }
 

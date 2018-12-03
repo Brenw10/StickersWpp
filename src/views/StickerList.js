@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, NativeModules, FlatList, Dimensions, Alert, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, NativeModules, FlatList, Dimensions, Alert, TouchableOpacity, Platform } from 'react-native';
 import ImagePicker from 'react-native-image-crop-picker';
 import sticker from 'StickersWpp/src/services/sticker';
 import Sticker from 'StickersWpp/src/components/Sticker';
@@ -21,7 +21,8 @@ export default class StickerList extends Component {
   }
   selectImage() {
     return ImagePicker.openPicker({})
-      .then(image => sticker.add(image.sourceURL))
+      .then(image => Platform.OS === 'ios' ? image.sourceURL : image.path)
+      .then(imageURL => sticker.add(imageURL))
       .then(this.refresh.bind(this));
   }
   removeAll() {
